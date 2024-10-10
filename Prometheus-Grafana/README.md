@@ -120,7 +120,17 @@ http://a0ddb207885584297b8f3f1a930b1254-1286264633.us-east-1.elb.amazonaws.com/
 ```
 http://a0ddb207885584297b8f3f1a930b1254-1286264633.us-east-1.elb.amazonaws.com/metrics
 ```
+```
+Alerts
+Status targets
+k get no -o wide (for getting the ip_address for crosschecking the ip from targets. the metrics is comming from node exporters in promethues. 
+These nodes exporters will be deployed as demonset onthe cluster)
 
+k get all -n monitoring
+what is daemonset
+
+in search => pod -> kube_pod_info
+```
 
 # Grafana Installation:
 
