@@ -82,9 +82,22 @@ Check the pods and events
 
 14m         Warning   ProvisioningFailed     persistentvolumeclaim/storage-prometheus-alertmanager-0   (combined from similar events): failed to provision volume with StorageClass "gp2": rpc error: code = Internal desc = Could not create volume "pvc-6a6e76fe-63cd-4e76-b248-a02aa25c640a": could not create volume in EC2: operation error EC2: CreateVolume, get identity: get credentials: failed to refresh cached credentials, failed to retrieve credentials, operation error STS: AssumeRoleWithWebIdentity, https response error StatusCode: 403, RequestID: af3cda9c-0e99-456b-9624-6e09a41ce0b7, api error AccessDenied: Not authorized to perform sts:AssumeRoleWithWebIdentity
 
+IAM -> Policy -> create -> EC2 => paste the below code inside the json and fix indentation
+Json:
+{
+ "Version": "2012-10-17"
+ "Statement": [
+   {
+     Effect : "Allow",
+     Action : "sts:AssumeRoleWithWebIdentity",
+     Resource : "*"
+    }
+]
+}
+
 If it still gives above error check IAM role of your nodes(eks)
  in My case it is (eksctl-eksdemo-nodegroup-eksdemo-n-NodeInstanceRole-2kStVXRYPsk5)
- 
+
  In this role add permission related to sts i have created already with name (sts-eks-ebs-csi) 
  attach this sts-eks-ebs-csi policy with role eksctl-eksdemo-nodegroup-eksdemo-n-NodeInstanceRole-2kStVXRYPsk5
  
