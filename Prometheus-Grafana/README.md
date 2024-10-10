@@ -46,6 +46,10 @@ helm install prom -f values.yaml -n monitoring .
 ```
 kubectl get all -n monitoring
 ```
+if the pods are in pending state (from events we get to know the error.As ebs driver is mandatory after 1.23 version. we need to install it)
+```
+k get events -n monitoring
+````
 - Get pvc
 ```  
 kubectl get pvc -n monitoring
