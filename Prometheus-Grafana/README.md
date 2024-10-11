@@ -164,6 +164,10 @@ kubectl get all -n monitoring
 ```
 kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
+
+```
+Go to LoadBalancer and check the newly created loadbalancer. Copy the DNS name and paste it in the chrome.
+```
 - Add prometheus as a Data source in Grafana
 ```
 Under connections --> Add connections --> Create a Prometheus Data source
