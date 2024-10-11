@@ -182,3 +182,6 @@ Under connections --> Data sources --> Prometheus --> Enter url of prometheus --
 Home -> Dashboard -> New -> Import -> copy the Dashboard of from Grafana website (17119) (315) , Datasource -> Promethus => import
 Dashboard -> select the imported one -> You can see the output => select any metrics -> edit -> Now you can configure according to you.
 ```
+```
+eksctl delete cluster eksdemo
+```
